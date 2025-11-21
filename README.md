@@ -14,7 +14,7 @@ Individuals who remove or modify the license file will also carry the consequenc
 
 ***
 ## Running tests on command line / terminal
-The tests can be run in the command line at '/backend' and after having ran the command:
+The tests can be run in the command line at the project root after having ran the command:
 ```
 npm install
 ```
@@ -29,11 +29,11 @@ npm test -- --coverage
 ---
 
 ## Docker
-There is a Dockerfile present at the /backend of the project, that runs the tests that are present. Using this can be useful for some testing tools as well as in GitHub Actions CI/CD -pipeline that is impelemented.
+There is a Dockerfile present at the root folder of the project, that runs the tests that are present. Using this can be useful for some testing tools as well as in GitHub Actions CI/CD -pipeline that is impelemented.
 
-Here is how to run the backend tests locally in docker:
+Here is how to run the tests locally in docker:
 ### step 1
-Open terminal in the backend-directory with its Dockerfile and run:
+Open terminal in the root-directory where the Dockerfile is, and run:
 ```
 docker build -t myapp .
 ```
