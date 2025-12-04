@@ -135,12 +135,35 @@ describe('tests to exit with true', () => {
       expect(mockgetTag).toHaveBeenCalledTimes(1)
       expect(mockisPrototype).toHaveBeenCalledTimes(1)
     })
+
+    test('should return true for an object with only inherited properties', () => {
+
+      // an object that inherits properties but has no own keys.
+      // -> enters for loop but doesn't trigger hasOwnProperty.call if-statement
+      const parent = { inheritedKey: 1 };
+      const value = Object.create(parent); 
+      
+      // 2. The mocks must ensure the execution reaches the end.
+      mockgetTag.mockReturnValueOnce('[object Object]'); // Forces tag check bypass
+      mockisPrototype.mockReturnValueOnce(false); // Forces prototype bypass
+      mockisArrayLike.mockReturnValueOnce(false); // Forces array-like bypass
+
+      const result = isEmpty(value);
+
+      expect(result).toBe(true);
+
+      // Assert verifications of function actions
+      expect(mockisArrayLike).toHaveBeenCalledTimes(1)
+      expect(mockgetTag).toHaveBeenCalledTimes(1)
+      expect(mockisPrototype).toHaveBeenCalledTimes(1)
+    })
 })
 
 describe('tests to trigger if-statements with non-empty map/set, prototype and dict', () => {
     afterEach(() => {
         vi.resetAllMocks()
     })
+
     test('should return false with non-empty map', () => {
 
       const value = new Map([
@@ -168,6 +191,7 @@ describe('tests to trigger if-statements with non-empty map/set, prototype and d
       expect(mockgetTag).toHaveBeenCalledTimes(1)
       expect(mockisPrototype).toHaveBeenCalledTimes(0)
     })
+
     test('should return false with non-empty set', () => {
 
       const value = new Set(["a","b","c"]);
