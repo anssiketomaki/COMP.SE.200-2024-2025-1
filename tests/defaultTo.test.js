@@ -5,12 +5,15 @@ describe('tests to return default', () =>{
     test('should return int value when it is determined', () => {
         expect(defaultTo(1, 10)).toBe(1)
     })
+
     test('should return float value and not react to default being undefined', () => {
         expect(defaultTo(3.14, undefined)).toBe(3.14)
     })
+
     test('should return string value and not react to default being NaN', () => {
         expect(defaultTo("nonEmpty", NaN)).toBe("nonEmpty")
     })
+    
     test('should return value when default is undefined', () => {
         expect(defaultTo(1, null)).toBe(1)
     })
