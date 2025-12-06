@@ -1,4 +1,3 @@
-import { describe } from 'vitest'
 import defaultTo from '../src/defaultTo.js'
 
 describe('tests to return default', () =>{
