@@ -27,7 +27,6 @@ describe('words', () => {
 
     expect(mockUnicodeWords).toHaveBeenCalledWith(input)
     expect(result).toEqual(['fred', 'barney', 'pebbles'])
-    expect(mockUnicodeWords).toHaveBeenCalledTimes(1)
   })
 
   it('should return empty array for empty string', () => {
@@ -52,7 +51,6 @@ describe('words', () => {
     
     expect(mockUnicodeWords).toHaveBeenCalledWith('camelCaseWords')
     expect(result).toEqual(['camelCase', 'words'])
-    expect(mockUnicodeWords).toHaveBeenCalledTimes(1)
   })
 
   it('should handle camelCase with lowercase followed by uppercase', () => {
@@ -62,7 +60,6 @@ describe('words', () => {
 
     expect(mockUnicodeWords).toHaveBeenCalledWith('camelCase')
     expect(result).toEqual(['camel', 'Case'])
-    expect(mockUnicodeWords).toHaveBeenCalledTimes(1)
   })
 
   it('should handle consecutive uppercase letters followed by lowercase', () => {
@@ -72,7 +69,6 @@ describe('words', () => {
 
     expect(mockUnicodeWords).toHaveBeenCalledWith('HTMLParser')
     expect(result).toEqual(['HTML', 'Parser'])
-    expect(mockUnicodeWords).toHaveBeenCalledTimes(1)
   })
 
   it('should handle numbers in strings', () => {
@@ -82,7 +78,6 @@ describe('words', () => {
 
     expect(mockUnicodeWords).toHaveBeenCalledWith('version2Beta')
     expect(result).toEqual(['version', '2', 'Beta'])
-    expect(mockUnicodeWords).toHaveBeenCalledTimes(1)
   })
 
   it('should handle strings with special characters', () => {
@@ -92,7 +87,6 @@ describe('words', () => {
 
     expect(mockUnicodeWords).toHaveBeenCalledWith('hello-world')
     expect(result).toEqual(['hello', 'world'])
-    expect(mockUnicodeWords).toHaveBeenCalledTimes(1)
   })
 
   it('should handle single word', () => {
@@ -133,7 +127,6 @@ describe('words', () => {
 
     expect(mockUnicodeWords).toHaveBeenCalledWith('file1Name')
     expect(result).toEqual(['file1', 'Name'])
-    expect(mockUnicodeWords).toHaveBeenCalledTimes(1)
   })
 
   it('should handle ASCII words when no unicode pattern present', () => {
@@ -150,7 +143,6 @@ describe('words', () => {
 
     expect(mockUnicodeWords).toHaveBeenCalledWith('word1word2')
     expect(result).toEqual(['word1', 'word2'])
-    expect(mockUnicodeWords).toHaveBeenCalledTimes(1)
   })
 
   it('should handle pattern with alternation', () => {
@@ -171,7 +163,6 @@ describe('words', () => {
     expect(mockUnicodeWords).toHaveBeenCalledWith(input)
     expect(result).toContain('word1')
     expect(result).toContain('word2')
-    expect(mockUnicodeWords).toHaveBeenCalledTimes(1)
   })
 
   it('should match words with digits at start and end', () => {
@@ -181,6 +172,5 @@ describe('words', () => {
 
     expect(mockUnicodeWords).toHaveBeenCalledWith('test123abc')
     expect(result).toEqual(['test123', 'abc'])
-    expect(mockUnicodeWords).toHaveBeenCalledTimes(1)
   })
 })

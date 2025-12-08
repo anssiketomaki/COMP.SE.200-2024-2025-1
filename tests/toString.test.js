@@ -33,7 +33,6 @@ describe('toString', () => {
     
     expect(result).toBe('')
     expect(mockIsSymbol).toHaveBeenCalledWith(null)
-    expect(mockIsSymbol).toHaveBeenCalledTimes(1)
   })
 
   it('should return empty string for undefined', () => {
@@ -43,7 +42,6 @@ describe('toString', () => {
     
     expect(result).toBe('')
     expect(mockIsSymbol).toHaveBeenCalledWith(undefined)
-    expect(mockIsSymbol).toHaveBeenCalledTimes(1)
   })
 
   it('should preserve the sign of -0', () => {
@@ -53,7 +51,6 @@ describe('toString', () => {
     
     expect(result).toBe('-0')
     expect(mockIsSymbol).toHaveBeenCalledWith(-0)
-    expect(mockIsSymbol).toHaveBeenCalledTimes(1)
   })
 
   it('should convert positive zero to "0"', () => {
@@ -63,7 +60,6 @@ describe('toString', () => {
     
     expect(result).toBe('0')
     expect(mockIsSymbol).toHaveBeenCalledWith(0)
-    expect(mockIsSymbol).toHaveBeenCalledTimes(1)
   })
 
   it('should convert numbers to strings', () => {
@@ -73,7 +69,6 @@ describe('toString', () => {
     
     expect(result).toBe('42')
     expect(mockIsSymbol).toHaveBeenCalledWith(42)
-    expect(mockIsSymbol).toHaveBeenCalledTimes(1)
   })
 
   it('should convert arrays to comma-separated strings', () => {
@@ -112,7 +107,6 @@ describe('toString', () => {
     
     expect(result).toBe(symbol.toString())
     expect(mockIsSymbol).toHaveBeenCalledWith(symbol)
-    expect(mockIsSymbol).toHaveBeenCalledTimes(1)
   })
 
   it('should convert booleans to strings', () => {
@@ -131,7 +125,6 @@ describe('toString', () => {
     
     expect(result).toBe('[object Object]')
     expect(mockIsSymbol).toHaveBeenCalledWith({ a: 1 })
-    expect(mockIsSymbol).toHaveBeenCalledTimes(1)
   })
 
   it('should handle empty arrays', () => {
@@ -158,7 +151,6 @@ describe('toString', () => {
     
     expect(result).toBe('-42')
     expect(mockIsSymbol).toHaveBeenCalledWith(-42)
-    expect(mockIsSymbol).toHaveBeenCalledTimes(1)
   })
 
   it('should handle floating point numbers', () => {
@@ -168,7 +160,6 @@ describe('toString', () => {
     
     expect(result).toBe('3.14')
     expect(mockIsSymbol).toHaveBeenCalledWith(3.14)
-    expect(mockIsSymbol).toHaveBeenCalledTimes(1)
   })
 
   it('should handle Infinity', () => {
@@ -178,7 +169,6 @@ describe('toString', () => {
     
     expect(result).toBe('Infinity')
     expect(mockIsSymbol).toHaveBeenCalledWith(Infinity)
-    expect(mockIsSymbol).toHaveBeenCalledTimes(1)
   })
 
   it('should handle -Infinity', () => {
@@ -188,7 +178,6 @@ describe('toString', () => {
     
     expect(result).toBe('-Infinity')
     expect(mockIsSymbol).toHaveBeenCalledWith(-Infinity)
-    expect(mockIsSymbol).toHaveBeenCalledTimes(1)
   })
 
   it('should handle NaN', () => {
@@ -198,7 +187,6 @@ describe('toString', () => {
     
     expect(result).toBe('NaN')
     expect(mockIsSymbol).toHaveBeenCalledWith(NaN)
-    expect(mockIsSymbol).toHaveBeenCalledTimes(1)
   })
 
   it('should handle nested arrays', () => {

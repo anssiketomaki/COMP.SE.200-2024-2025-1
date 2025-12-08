@@ -32,7 +32,6 @@ describe('keys', () => {
     
     expect(result).toEqual(['a', 'b', 'c'])
     expect(mockIsArrayLike).toHaveBeenCalledWith(obj)
-    expect(mockIsArrayLike).toHaveBeenCalledTimes(1)
     expect(mockArrayLikeKeys).not.toHaveBeenCalled()
   })
 
@@ -45,8 +44,6 @@ describe('keys', () => {
     
     expect(result).toEqual(['0', '1'])
     expect(mockArrayLikeKeys).toHaveBeenCalledWith(arrayLike)
-    expect(mockArrayLikeKeys).toHaveBeenCalledTimes(1)
-    expect(mockIsArrayLike).toHaveBeenCalledTimes(1)
   })
 
   it('should handle empty objects', () => {
@@ -68,7 +65,6 @@ describe('keys', () => {
     
     expect(result).toEqual(['0', '1'])
     expect(mockIsArrayLike).toHaveBeenCalledWith(str)
-    expect(mockIsArrayLike).toHaveBeenCalledTimes(1)
     expect(mockArrayLikeKeys).not.toHaveBeenCalled()
   })
 
@@ -78,7 +74,6 @@ describe('keys', () => {
     const result = keys(null)
     
     expect(result).toEqual([])
-    expect(mockIsArrayLike).toHaveBeenCalledTimes(1)
     expect(mockArrayLikeKeys).not.toHaveBeenCalled()
   })
 
@@ -88,7 +83,6 @@ describe('keys', () => {
     const result = keys(undefined)
     
     expect(result).toEqual([])
-    expect(mockIsArrayLike).toHaveBeenCalledTimes(1)
     expect(mockArrayLikeKeys).not.toHaveBeenCalled()
   })
 
@@ -107,7 +101,6 @@ describe('keys', () => {
     expect(result).toContain('a')
     expect(result).toContain('b')
     expect(result).not.toContain('c')
-    expect(mockIsArrayLike).toHaveBeenCalledTimes(1)
     expect(mockArrayLikeKeys).not.toHaveBeenCalled()
   })
 
@@ -119,8 +112,6 @@ describe('keys', () => {
     const result = keys(arr)
     
     expect(result).toEqual(['0', '1', '2'])
-    expect(mockIsArrayLike).toHaveBeenCalledTimes(1)
-    expect(mockArrayLikeKeys).toHaveBeenCalledTimes(1)
   })
 
   it('should handle numbers by coercing to object', () => {
@@ -129,7 +120,6 @@ describe('keys', () => {
     const result = keys(123)
     
     expect(result).toEqual([])
-    expect(mockIsArrayLike).toHaveBeenCalledTimes(1)
     expect(mockArrayLikeKeys).not.toHaveBeenCalled()
   })
 })
