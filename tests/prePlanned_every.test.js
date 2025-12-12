@@ -1,9 +1,5 @@
 import every from '../src/every.js'
 
-console.log("every is: ", every)
-every([1, 2, 3], x => x)
-
-
 // Predicate function to use as a parameter for every
 function testPredicate(listValue, i, valueList) {
     if(!listValue){return false}
@@ -13,7 +9,6 @@ function testPredicate(listValue, i, valueList) {
 // all used falsy and truthy values
 const falsyValues = [false, "", 0, 0n, null, undefined, NaN]
 const truthyValues = [true, "nonEmpty", 1, -1, 100000, -99999, 3.14, -3.14, 1n, -99n, {"ob":"ject"}, new Date(), testPredicate]
-
 
 describe('tests to return true', () =>{
     test('should return true when given empty list', () => {
